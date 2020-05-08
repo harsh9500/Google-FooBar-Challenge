@@ -78,7 +78,6 @@ def lcmForArrays(args):
     return initial
 
 def solution(m):
-    # Your code here
     terminalStates=[]
     nonTerminalStates=[]
     for i, row in enumerate(m):
@@ -95,9 +94,7 @@ def solution(m):
             m[i][i]=1
         else:
             for j, column in enumerate(row):
-                # print(j,column)
                 m[i][j]=Fraction(column,rowSum)
-    print(m)
 
     q=getSubMatrix(m,nonTerminalStates,nonTerminalStates)
     r=getSubMatrix(m,nonTerminalStates,terminalStates)
@@ -116,15 +113,3 @@ def solution(m):
     result=[item.numerator*denominator / item.denominator for item in result[0]]
     result.append(denominator)
     return result
-
-
-    
-test_input = [
-    [0, 1, 0, 0, 0, 1],
-    [4, 0, 0, 3, 2, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
-]
-print(solution(test_input))
